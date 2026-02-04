@@ -1,0 +1,24 @@
+.TH PO-DIFF 1 "February 2026" "po-diff 1.0.0" "User Commands"
+.SH NAME
+po-diff \- compare PO/TS translation files
+.SH SYNOPSIS
+.B po-diff
+[\fIOPTIONS\fR] \fIOLD_FILE\fR \fINEW_FILE\fR
+.SH DESCRIPTION
+.B po-diff
+compares two gettext .po or Qt .ts files and shows the differences.
+.SH OPTIONS
+.TP
+.BR \-f ", " \-\-format " " \fIFORMAT\fR
+Output format: text (default), json, html
+.TP
+.BR \-o ", " \-\-output " " \fIFILE\fR
+Save report to file
+.TP
+.BR \-h ", " \-\-help
+Show help
+.TP
+.BR \-v ", " \-\-version
+Show version
+.SH AUTHOR
+Daniel Nylander <daniel@danielnylander.se>

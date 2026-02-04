@@ -1,0 +1,95 @@
+# Swedish translation for po-diff
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sv\n"
+
+msgid "positional arguments"
+msgstr "positionsargument"
+
+msgid "options"
+msgstr "flaggor"
+
+msgid "po-diff - Compare PO/TS translation files"
+msgstr "po-diff - Jämför PO/TS-översättningsfiler"
+
+msgid "Old/original file"
+msgstr "Gammal/original fil"
+
+msgid "New/updated file"
+msgstr "Ny/uppdaterad fil"
+
+msgid "Output format (default: text)"
+msgstr "Utdataformat (standard: text)"
+
+msgid "Save report to file"
+msgstr "Spara rapport till fil"
+
+msgid "Show this help message and exit"
+msgstr "Visa detta hjälpmeddelande och avsluta"
+
+msgid "Show version number and exit"
+msgstr "Visa versionsnummer och avsluta"
+
+msgid ""
+"\n"
+"Examples:\n"
+"  po-diff old.po new.po                    # Compare two files\n"
+"  po-diff -f html -o diff.html old.po new.po  # Generate HTML report\n"
+"  po-diff -f json old.po new.po            # JSON output\n"
+"        "
+msgstr ""
+"\n"
+"Exempel:\n"
+"  po-diff gammal.po ny.po                  # Jämför två filer\n"
+"  po-diff -f html -o diff.html gammal.po ny.po  # Generera HTML-rapport\n"
+"  po-diff -f json gammal.po ny.po          # JSON-utdata\n"
+"        "
+
+msgid "📊 po-diff: {old} → {new}"
+msgstr "📊 po-diff: {old} → {new}"
+
+msgid "📈 Summary"
+msgstr "📈 Sammanfattning"
+
+msgid "   Old entries: {count}"
+msgstr "   Gamla poster: {count}"
+
+msgid "   New entries: {count}"
+msgstr "   Nya poster: {count}"
+
+msgid "   Added: {count}"
+msgstr "   Tillagda: {count}"
+
+msgid "   Removed: {count}"
+msgstr "   Borttagna: {count}"
+
+msgid "   Modified: {count}"
+msgstr "   Ändrade: {count}"
+
+msgid "✅ No changes found"
+msgstr "✅ Inga ändringar hittades"
+
+msgid "Added"
+msgstr "Tillagda"
+
+msgid "Removed"
+msgstr "Borttagna"
+
+msgid "Modified"
+msgstr "Ändrade"
+
+msgid "Fuzzy resolved"
+msgstr "Fuzzy löst"
+
+msgid "Marked fuzzy"
+msgstr "Markerad fuzzy"
+
+msgid "      ... and {count} more"
+msgstr "      ... och {count} till"
+
+msgid "❌ Error: File not found: {file}"
+msgstr "❌ Fel: Filen hittades inte: {file}"
+
+msgid "📄 Report saved to: {file}"
+msgstr "📄 Rapport sparad till: {file}"
