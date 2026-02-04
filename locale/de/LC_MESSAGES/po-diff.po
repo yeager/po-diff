@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+
+msgid "positional arguments"
+msgstr "Positionsargumente"
+
+msgid "options"
+msgstr "Optionen"
+
+msgid "po-diff - Compare PO/TS translation files"
+msgstr "po-diff - PO/TS-Übersetzungsdateien vergleichen"
+
+msgid "Old/original file"
+msgstr "Alte/originale Datei"
+
+msgid "New/updated file"
+msgstr "Neue/aktualisierte Datei"
+
+msgid "Output format (default: text)"
+msgstr "Ausgabeformat (Standard: text)"
+
+msgid "Save report to file"
+msgstr "Bericht in Datei speichern"
+
+msgid "Show this help message and exit"
+msgstr "Diese Hilfemeldung anzeigen und beenden"
+
+msgid "Show version number and exit"
+msgstr "Versionsnummer anzeigen und beenden"
+
+msgid ""
+"\n"
+"Examples:\n"
+"  po-diff old.po new.po                    # Compare two files\n"
+"  po-diff -f html -o diff.html old.po new.po  # Generate HTML report\n"
+"  po-diff -f json old.po new.po            # JSON output\n"
+"        "
+msgstr ""
+"\n"
+"Beispiele:\n"
+"  po-diff alt.po neu.po                    # Zwei Dateien vergleichen\n"
+"  po-diff -f html -o diff.html alt.po neu.po  # HTML-Bericht erstellen\n"
+"  po-diff -f json alt.po neu.po            # JSON-Ausgabe\n"
+"        "
+
+msgid "📊 po-diff: {old} → {new}"
+msgstr "📊 po-diff: {old} → {new}"
+
+msgid "📈 Summary"
+msgstr "📈 Zusammenfassung"
+
+msgid "   Old entries: {count}"
+msgstr "   Alte Einträge: {count}"
+
+msgid "   New entries: {count}"
+msgstr "   Neue Einträge: {count}"
+
+msgid "   Added: {count}"
+msgstr "   Hinzugefügt: {count}"
+
+msgid "   Removed: {count}"
+msgstr "   Entfernt: {count}"
+
+msgid "   Modified: {count}"
+msgstr "   Geändert: {count}"
+
+msgid "✅ No changes found"
+msgstr "✅ Keine Änderungen gefunden"
+
+msgid "Added"
+msgstr "Hinzugefügt"
+
+msgid "Removed"
+msgstr "Entfernt"
+
+msgid "Modified"
+msgstr "Geändert"
+
+msgid "Fuzzy resolved"
+msgstr "Fuzzy aufgelöst"
+
+msgid "Marked fuzzy"
+msgstr "Als fuzzy markiert"
+
+msgid "      ... and {count} more"
+msgstr "      ... und {count} weitere"
+
+msgid "❌ Error: File not found: {file}"
+msgstr "❌ Fehler: Datei nicht gefunden: {file}"
+
+msgid "📄 Report saved to: {file}"
+msgstr "📄 Bericht gespeichert unter: {file}"

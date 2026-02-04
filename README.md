@@ -10,14 +10,26 @@ Shows what changed between two versions of a translation file.
 - **Modified** – Changed translations with diff
 - **Fuzzy changes** – Track fuzzy flag changes
 - **Multiple formats** – text, JSON, HTML reports
-- **Localized** – Swedish and English
+- **Localized** – 11 languages (de, en, es, fr, it, ja, nl, pl, pt, ru, sv, zh)
 
 ## Installation
 
+### Debian/Ubuntu
 ```bash
-# Debian/Ubuntu
 echo "deb [trusted=yes] https://yeager.github.io/debian-repo stable main" | sudo tee /etc/apt/sources.list.d/yeager.list
 sudo apt update && sudo apt install po-diff
+```
+
+### Fedora/RHEL
+```bash
+sudo tee /etc/yum.repos.d/yeager.repo << REPO
+[yeager]
+name=Yeager Tools
+baseurl=https://yeager.github.io/rpm-repo
+enabled=1
+gpgcheck=0
+REPO
+sudo dnf install po-diff
 ```
 
 ## Usage
@@ -33,6 +45,30 @@ po-diff -f html -o diff.html old.po new.po
 po-diff -f json old.po new.po > changes.json
 ```
 
+## Output Example
+
+```
+📊 po-diff: old.po → new.po
+============================================================
+
+📈 Summary
+   Old entries: 150
+   New entries: 165
+   Added: 20
+   Removed: 5
+   Modified: 8
+
+➕ Added (20)
+----------------------------------------
+  [45] "New feature message"
+  [67] "Another new string"
+  ...
+```
+
 ## License
 
 GPL-3.0-or-later
+
+## Author
+
+Daniel Nylander <daniel@danielnylander.se>

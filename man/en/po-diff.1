@@ -6,19 +6,50 @@ po-diff \- compare PO/TS translation files
 [\fIOPTIONS\fR] \fIOLD_FILE\fR \fINEW_FILE\fR
 .SH DESCRIPTION
 .B po-diff
-compares two gettext .po or Qt .ts files and shows the differences.
+compares two gettext .po or Qt .ts translation files and shows the differences between them. It identifies added, removed, and modified translations, as well as changes to fuzzy status.
 .SH OPTIONS
 .TP
 .BR \-f ", " \-\-format " " \fIFORMAT\fR
-Output format: text (default), json, html
+Output format. Valid values are:
+.RS
+.IP \fBtext\fR
+Plain text output (default)
+.IP \fBjson\fR
+JSON output for programmatic processing
+.IP \fBhtml\fR
+HTML report with styling
+.RE
 .TP
 .BR \-o ", " \-\-output " " \fIFILE\fR
-Save report to file
+Save the report to FILE instead of printing to stdout.
 .TP
 .BR \-h ", " \-\-help
-Show help
+Show help message and exit.
 .TP
 .BR \-v ", " \-\-version
-Show version
+Show version number and exit.
+.SH EXIT STATUS
+.TP
+.B 0
+No differences found between the files.
+.TP
+.B 1
+Differences were found, or an error occurred.
+.SH EXAMPLES
+.TP
+Compare two PO files:
+.B po-diff old.po new.po
+.TP
+Generate an HTML report:
+.B po-diff -f html -o diff.html old.po new.po
+.TP
+Output as JSON:
+.B po-diff -f json old.po new.po > changes.json
+.SH SEE ALSO
+.BR msgfmt (1),
+.BR msgmerge (1),
+.BR l10n-lint (1)
 .SH AUTHOR
 Daniel Nylander <daniel@danielnylander.se>
+.SH COPYRIGHT
+Copyright \(co 2026 Daniel Nylander. License: GPL-3.0-or-later.

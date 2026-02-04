@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: nl\n"
+
+msgid "positional arguments"
+msgstr "positionele argumenten"
+
+msgid "options"
+msgstr "opties"
+
+msgid "po-diff - Compare PO/TS translation files"
+msgstr "po-diff - PO/TS-vertalingsbestanden vergelijken"
+
+msgid "Old/original file"
+msgstr "Oud/origineel bestand"
+
+msgid "New/updated file"
+msgstr "Nieuw/bijgewerkt bestand"
+
+msgid "Output format (default: text)"
+msgstr "Uitvoerformaat (standaard: text)"
+
+msgid "Save report to file"
+msgstr "Rapport opslaan naar bestand"
+
+msgid "Show this help message and exit"
+msgstr "Dit helpbericht tonen en afsluiten"
+
+msgid "Show version number and exit"
+msgstr "Versienummer tonen en afsluiten"
+
+msgid ""
+"\n"
+"Examples:\n"
+"  po-diff old.po new.po                    # Compare two files\n"
+"  po-diff -f html -o diff.html old.po new.po  # Generate HTML report\n"
+"  po-diff -f json old.po new.po            # JSON output\n"
+"        "
+msgstr ""
+"\n"
+"Voorbeelden:\n"
+"  po-diff oud.po nieuw.po                  # Twee bestanden vergelijken\n"
+"  po-diff -f html -o diff.html oud.po nieuw.po  # HTML-rapport genereren\n"
+"  po-diff -f json oud.po nieuw.po          # JSON-uitvoer\n"
+"        "
+
+msgid "📊 po-diff: {old} → {new}"
+msgstr "📊 po-diff: {old} → {new}"
+
+msgid "📈 Summary"
+msgstr "📈 Samenvatting"
+
+msgid "   Old entries: {count}"
+msgstr "   Oude items: {count}"
+
+msgid "   New entries: {count}"
+msgstr "   Nieuwe items: {count}"
+
+msgid "   Added: {count}"
+msgstr "   Toegevoegd: {count}"
+
+msgid "   Removed: {count}"
+msgstr "   Verwijderd: {count}"
+
+msgid "   Modified: {count}"
+msgstr "   Gewijzigd: {count}"
+
+msgid "✅ No changes found"
+msgstr "✅ Geen wijzigingen gevonden"
+
+msgid "Added"
+msgstr "Toegevoegd"
+
+msgid "Removed"
+msgstr "Verwijderd"
+
+msgid "Modified"
+msgstr "Gewijzigd"
+
+msgid "Fuzzy resolved"
+msgstr "Fuzzy opgelost"
+
+msgid "Marked fuzzy"
+msgstr "Gemarkeerd als fuzzy"
+
+msgid "      ... and {count} more"
+msgstr "      ... en nog {count}"
+
+msgid "❌ Error: File not found: {file}"
+msgstr "❌ Fout: Bestand niet gevonden: {file}"
+
+msgid "📄 Report saved to: {file}"
+msgstr "📄 Rapport opgeslagen naar: {file}"

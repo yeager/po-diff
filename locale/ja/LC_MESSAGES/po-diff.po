@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+
+msgid "positional arguments"
+msgstr "位置引数"
+
+msgid "options"
+msgstr "オプション"
+
+msgid "po-diff - Compare PO/TS translation files"
+msgstr "po-diff - PO/TS翻訳ファイルを比較"
+
+msgid "Old/original file"
+msgstr "古い/元のファイル"
+
+msgid "New/updated file"
+msgstr "新しい/更新されたファイル"
+
+msgid "Output format (default: text)"
+msgstr "出力形式（デフォルト: text）"
+
+msgid "Save report to file"
+msgstr "レポートをファイルに保存"
+
+msgid "Show this help message and exit"
+msgstr "ヘルプメッセージを表示して終了"
+
+msgid "Show version number and exit"
+msgstr "バージョン番号を表示して終了"
+
+msgid ""
+"\n"
+"Examples:\n"
+"  po-diff old.po new.po                    # Compare two files\n"
+"  po-diff -f html -o diff.html old.po new.po  # Generate HTML report\n"
+"  po-diff -f json old.po new.po            # JSON output\n"
+"        "
+msgstr ""
+"\n"
+"例：\n"
+"  po-diff old.po new.po                    # 2つのファイルを比較\n"
+"  po-diff -f html -o diff.html old.po new.po  # HTMLレポートを生成\n"
+"  po-diff -f json old.po new.po            # JSON出力\n"
+"        "
+
+msgid "📊 po-diff: {old} → {new}"
+msgstr "📊 po-diff: {old} → {new}"
+
+msgid "📈 Summary"
+msgstr "📈 要約"
+
+msgid "   Old entries: {count}"
+msgstr "   古いエントリ: {count}"
+
+msgid "   New entries: {count}"
+msgstr "   新しいエントリ: {count}"
+
+msgid "   Added: {count}"
+msgstr "   追加: {count}"
+
+msgid "   Removed: {count}"
+msgstr "   削除: {count}"
+
+msgid "   Modified: {count}"
+msgstr "   変更: {count}"
+
+msgid "✅ No changes found"
+msgstr "✅ 変更は見つかりませんでした"
+
+msgid "Added"
+msgstr "追加"
+
+msgid "Removed"
+msgstr "削除"
+
+msgid "Modified"
+msgstr "変更"
+
+msgid "Fuzzy resolved"
+msgstr "Fuzzy解決済み"
+
+msgid "Marked fuzzy"
+msgstr "Fuzzyとしてマーク"
+
+msgid "      ... and {count} more"
+msgstr "      ... 他 {count} 件"
+
+msgid "❌ Error: File not found: {file}"
+msgstr "❌ エラー: ファイルが見つかりません: {file}"
+
+msgid "📄 Report saved to: {file}"
+msgstr "📄 レポートを保存しました: {file}"

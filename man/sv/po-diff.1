@@ -6,19 +6,66 @@ po-diff \- jämför PO/TS-översättningsfiler
 [\fIFLAGGOR\fR] \fIGAMMAL_FIL\fR \fINY_FIL\fR
 .SH BESKRIVNING
 .B po-diff
-jämför två gettext .po eller Qt .ts-filer och visar skillnaderna.
+jämför två gettext .po- eller Qt .ts-översättningsfiler och visar skillnaderna mellan dem. Programmet identifierar tillagda, borttagna och ändrade översättningar, samt ändringar i fuzzy-status.
 .SH FLAGGOR
 .TP
 .BR \-f ", " \-\-format " " \fIFORMAT\fR
-Utdataformat: text (standard), json, html
+Utdataformat. Giltiga värden är:
+.RS
+.IP \fBtext\fR
+Ren textutdata (standard)
+.IP \fBjson\fR
+JSON-utdata för programmatisk bearbetning
+.IP \fBhtml\fR
+HTML-rapport med formatering
+.RE
 .TP
 .BR \-o ", " \-\-output " " \fIFIL\fR
-Spara rapport till fil
+Spara rapporten till FIL istället för att skriva ut till stdout.
 .TP
 .BR \-h ", " \-\-help
-Visa hjälp
+Visa hjälpmeddelande och avsluta.
 .TP
 .BR \-v ", " \-\-version
-Visa version
+Visa versionsnummer och avsluta.
+.SH SLUTSTATUS
+.TP
+.B 0
+Inga skillnader hittades mellan filerna.
+.TP
+.B 1
+Skillnader hittades, eller ett fel uppstod.
+.SH EXEMPEL
+.TP
+Jämför två PO-filer:
+.B po-diff gammal.po ny.po
+.TP
+Generera en HTML-rapport:
+.B po-diff -f html -o diff.html gammal.po ny.po
+.TP
+Utdata som JSON:
+.B po-diff -f json gammal.po ny.po > ändringar.json
+.SH ÄNDRINGSTYPER
+.TP
+.B added (tillagd)
+Nya översättningar som finns i den nya filen men inte i den gamla.
+.TP
+.B removed (borttagen)
+Översättningar som fanns i den gamla filen men saknas i den nya.
+.TP
+.B modified (ändrad)
+Översättningar där msgstr har ändrats mellan versionerna.
+.TP
+.B fuzzy_added (fuzzy tillagd)
+Översättningar som markerats som fuzzy i den nya filen.
+.TP
+.B fuzzy_removed (fuzzy borttagen)
+Översättningar där fuzzy-flaggan togs bort (översättning bekräftad).
+.SH SE ÄVEN
+.BR msgfmt (1),
+.BR msgmerge (1),
+.BR l10n-lint (1)
 .SH FÖRFATTARE
 Daniel Nylander <daniel@danielnylander.se>
+.SH UPPHOVSRÄTT
+Copyright \(co 2026 Daniel Nylander. Licens: GPL-3.0-or-later.
