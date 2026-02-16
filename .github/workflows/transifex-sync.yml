@@ -1,0 +1,47 @@
+name: Transifex Sync
+
+on:
+  push:
+    paths:
+      - 'po/*.pot'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Transifex CLI
+        run: |
+          curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+          sudo mv tx /usr/local/bin/
+
+      - name: Push source to Transifex
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: tx push --source --no-interactive
+
+      - name: Pull translations
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+        run: |
+          tx pull --all --force --no-interactive
+          # Compile .mo files
+          for po in po/*.po; do
+            [ -f "$po" ] || continue
+            lang=$(basename "$po" .po)
+            mkdir -p locale/${lang}/LC_MESSAGES
+            msgfmt -o locale/${lang}/LC_MESSAGES/po-diff.mo "$po"
+          done
+
+      - name: Commit translations
+        run: |
+          git config user.name "Transifex Bot"
+          git config user.email "noreply@transifex.com"
+          git add po/ locale/
+          git diff --cached --quiet || git commit -m "Update translations from Transifex"
+          git push
