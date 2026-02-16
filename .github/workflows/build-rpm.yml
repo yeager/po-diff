@@ -1,0 +1,113 @@
+name: Build RPM
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install RPM tools
+        run: sudo apt-get update && sudo apt-get install -y rpm
+
+      - name: Get version
+        id: version
+        run: echo "version=$(grep -oP '__version__ = "\K[^"]+' po_diff.py)" >> $GITHUB_OUTPUT
+
+      - name: Build RPM
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: python3 {0}
+        run: |
+          import os, subprocess, textwrap, datetime, glob
+          version = os.environ["VERSION"]
+          pkg = f"po-diff-{version}"
+          home = os.path.expanduser("~")
+
+          for d in ["BUILD","RPMS","SOURCES","SPECS","SRPMS"]:
+              os.makedirs(f"{home}/rpmbuild/{d}", exist_ok=True)
+
+          os.makedirs(f"{pkg}/data/man", exist_ok=True)
+          subprocess.run(f"cp po_diff.py {pkg}/", shell=True, check=True)
+          subprocess.run(f"cp -r data/man/po-diff.1 {pkg}/data/man/ 2>/dev/null || cp man/en/po-diff.1 {pkg}/data/man/", shell=True, check=True)
+          subprocess.run(f"test -d locale && cp -r locale {pkg}/ || true", shell=True, check=True)
+
+          for lang_dir in sorted(glob.glob("man/*/")):
+              lang = os.path.basename(lang_dir.rstrip("/"))
+              man_file = os.path.join(lang_dir, "po-diff.1")
+              if os.path.isfile(man_file):
+                  dest = f"{pkg}/man/{lang}"
+                  os.makedirs(dest, exist_ok=True)
+                  subprocess.run(f"cp {man_file} {dest}/", shell=True, check=True)
+
+          subprocess.run(f"tar czf {home}/rpmbuild/SOURCES/po-diff-{version}.tar.gz {pkg}", shell=True, check=True)
+
+          man_install = ""
+          man_files = ""
+          for lang_dir in sorted(glob.glob("man/*/")):
+              lang = os.path.basename(lang_dir.rstrip("/"))
+              if lang != "en" and os.path.isfile(os.path.join(lang_dir, "po-diff.1")):
+                  man_install += f"\ninstall -Dm644 man/{lang}/po-diff.1 %{{buildroot}}%{{_mandir}}/{lang}/man1/po-diff.1"
+                  man_files += f"\n%{{_mandir}}/{lang}/man1/po-diff.1*"
+
+          today = datetime.datetime.now().strftime("%a %b %d %Y")
+          spec = textwrap.dedent(f"""\
+          Name:           po-diff
+          Version:        {version}
+          Release:        1
+          Summary:        Compare PO/TS translation files
+          License:        GPL-3.0-or-later
+          URL:            https://github.com/yeager/po-diff
+          Source0:        %{{name}}-%{{version}}.tar.gz
+          BuildArch:      noarch
+          Requires:       python3 >= 3.9
+
+          %description
+          po-diff compares two PO or TS translation files and shows
+          added, removed, and changed translations.
+
+          %prep
+          %setup -q
+
+          %install
+          install -Dm755 po_diff.py %{{buildroot}}%{{_bindir}}/po-diff
+          install -Dm644 data/man/po-diff.1 %{{buildroot}}%{{_mandir}}/man1/po-diff.1
+          {man_install}
+
+          if [ -d locale ]; then
+            for mo in locale/*/LC_MESSAGES/*.mo; do
+              [ -f "$mo" ] || continue
+              lang=$(echo "$mo" | cut -d/ -f2)
+              install -Dm644 "$mo" "%{{buildroot}}%{{_datadir}}/locale/$lang/LC_MESSAGES/po-diff.mo"
+            done
+          fi
+
+          %files
+          %{{_bindir}}/po-diff
+          %{{_mandir}}/man1/po-diff.1*
+          {man_files}
+
+          %changelog
+          * {today} Daniel Nylander <daniel@danielnylander.se> - {version}-1
+          - RPM package
+          """)
+          with open(f"{home}/rpmbuild/SPECS/po-diff.spec", "w") as f:
+              f.write(spec)
+          subprocess.run(["rpmbuild", "-ba", f"{home}/rpmbuild/SPECS/po-diff.spec"], check=True)
+
+      - name: Upload RPM to release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          gh release upload "v${VERSION}" \
+            ~/rpmbuild/RPMS/noarch/po-diff-${VERSION}-1.noarch.rpm \
+            --clobber
