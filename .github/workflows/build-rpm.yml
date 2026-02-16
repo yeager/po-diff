@@ -93,6 +93,7 @@ jobs:
           %{{_bindir}}/po-diff
           %{{_mandir}}/man1/po-diff.1*
           {man_files}
+          %{{_datadir}}/locale/
 
           %changelog
           * {today} Daniel Nylander <daniel@danielnylander.se> - {version}-1
