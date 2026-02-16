@@ -1,0 +1,95 @@
+.TH PO-DIFF 1 "February 2026" "po-diff 0.1.3" "User Commands"
+.SH NAME
+po\-diff \- compare two PO files and show translation changes
+.SH SYNOPSIS
+.B po\-diff
+[\fIOPTIONS\fR] \fIOLD_FILE\fR \fINEW_FILE\fR
+.SH DESCRIPTION
+\fBpo\-diff\fR compares two PO (gettext) translation files and reports
+the differences. It shows added, removed, and modified translations,
+making it easy to review changes between file versions.
+.PP
+Unlike generic diff tools, po\-diff understands PO file structure and
+compares entries by their msgid, providing meaningful translation\-aware
+diffs instead of raw line differences.
+.PP
+Exit codes: 0 = no differences, 1 = differences found, 2 = usage error.
+.SH POSITIONAL ARGUMENTS
+.TP
+.I OLD_FILE
+Path to the old/original PO file (the baseline for comparison).
+.TP
+.I NEW_FILE
+Path to the new/updated PO file (the version to compare against).
+.SH OPTIONS
+.TP
+\fB\-f\fR, \fB\-\-format\fR \fIFORMAT\fR
+Output format. Choices:
+.RS
+.TP
+\fBtext\fR (default)
+Human\-readable colored text output showing added, removed, and
+modified entries with context.
+.TP
+\fBjson\fR
+Structured JSON output with arrays for added, removed, and modified
+entries. Each entry includes msgid, old msgstr, and new msgstr.
+.TP
+\fBhtml\fR
+Standalone HTML report with syntax\-highlighted diffs, suitable for
+sharing or archiving.
+.RE
+.TP
+\fB\-o\fR, \fB\-\-output\fR \fIFILE\fR
+Save the diff report to a file instead of printing to stdout.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show help message and exit.
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+Show version number and exit.
+.SH EXIT STATUS
+.TP
+.B 0
+Files are identical (no translation differences).
+.TP
+.B 1
+Differences found.
+.TP
+.B 2
+Usage error (file not found, invalid format).
+.SH EXAMPLES
+Compare two versions of a Swedish translation:
+.PP
+.RS
+.nf
+po\-diff po/sv.po.old po/sv.po
+.fi
+.RE
+.PP
+Generate a JSON diff:
+.PP
+.RS
+.nf
+po\-diff \-\-format json old.po new.po
+.fi
+.RE
+.PP
+Save an HTML report:
+.PP
+.RS
+.nf
+po\-diff \-\-format html \-\-output changes.html v1/sv.po v2/sv.po
+.fi
+.RE
+.SH SEE ALSO
+.BR l10n\-lint (1),
+.BR po\-translate (1),
+.BR diff (1),
+.BR msgmerge (1)
+.SH AUTHOR
+Daniel Nylander <daniel@danielnylander.se>
+.SH BUGS
+Report bugs at: https://github.com/yeager/po\-diff/issues
+.SH COPYRIGHT
+Copyright \(co 2026 Daniel Nylander. License: GPL\-3.0\-or\-later.
