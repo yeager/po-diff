@@ -1,5 +1,9 @@
 # po-diff
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/yeager/po-diff/releases)
+[![License](https://img.shields.io/badge/license-GPL--3.0-green)](LICENSE)
+[![Transifex](https://img.shields.io/badge/translate-Transifex-blue)](https://app.transifex.com/danielnylander/po-diff/)
+
 🔄 Compare gettext .po and Qt .ts translation files
 
 Shows what changed between two versions of a translation file.
@@ -10,7 +14,8 @@ Shows what changed between two versions of a translation file.
 - **Modified** – Changed translations with diff
 - **Fuzzy changes** – Track fuzzy flag changes
 - **Multiple formats** – text, JSON, HTML reports
-- **Localized** – 11 languages (de, en, es, fr, it, ja, nl, pl, pt, ru, sv, zh)
+- **Man pages** – English + Swedish (`man po-diff`)
+- **Internationalized** – 11+ languages via [Transifex](https://app.transifex.com/danielnylander/po-diff/)
 
 ## Installation
 
@@ -64,6 +69,18 @@ po-diff -f json old.po new.po > changes.json
   [67] "Another new string"
   ...
 ```
+
+## Translation
+
+This app is translated via Transifex. Help translate it into your language!
+
+**[→ Translate on Transifex](https://app.transifex.com/danielnylander/po-diff/)**
+
+1. Create a free account at [Transifex](https://www.transifex.com)
+2. Join the [danielnylander](https://app.transifex.com/danielnylander/) organization
+3. Pick `po-diff` and start translating
+
+Currently available in: ar, de, es, fr, ja, ko, pl, pt_BR, ru, sv, zh_CN
 
 ## License
 
