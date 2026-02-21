@@ -32,8 +32,9 @@ __version__ = "1.0.1"
 DOMAIN = "po-diff"
 
 _possible_locale_dirs = [
-    Path("/usr/share/po-diff/locale"),
-    Path(__file__).parent / "locale",
+    Path("/usr/share/locale"),  # System standard
+    Path("/usr/share/po-diff/locale"),  # Legacy
+    Path(__file__).parent / "locale",  # Development
 ]
 LOCALE_DIR = None
 for _dir in _possible_locale_dirs:
