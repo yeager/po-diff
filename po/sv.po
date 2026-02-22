@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: po-diff\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-22 11:05+0100\n"
+"POT-Creation-Date: 2026-02-04 20:25+0100\n"
 "PO-Revision-Date: 2026-02-16 12:17+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/danielnylander/teams/304841/sv/)\n"
@@ -21,82 +21,82 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: po_diff.py:228
+#: po_diff.py:227
 #, python-brace-format
 msgid "📊 po-diff: {old} → {new}"
 msgstr "📊 po-diff: {old} → {new}"
 
-#: po_diff.py:233
+#: po_diff.py:232
 msgid "📈 Summary"
 msgstr "📈 Sammandrag"
 
-#: po_diff.py:234
+#: po_diff.py:233
 #, python-brace-format
 msgid "   Old entries: {count}"
 msgstr "   Gamla poster: {count}"
 
-#: po_diff.py:235
+#: po_diff.py:234
 #, python-brace-format
 msgid "   New entries: {count}"
 msgstr "   Nya poster: {count}"
 
-#: po_diff.py:236
+#: po_diff.py:235
 #, python-brace-format
 msgid "   Added: {count}"
 msgstr "   Tillagda: {count}"
 
-#: po_diff.py:237
+#: po_diff.py:236
 #, python-brace-format
 msgid "   Removed: {count}"
 msgstr "   Borttagna: {count}"
 
-#: po_diff.py:238
+#: po_diff.py:237
 #, python-brace-format
 msgid "   Modified: {count}"
 msgstr "   Ändrade: {count}"
 
-#: po_diff.py:242
+#: po_diff.py:241
 msgid "✅ No changes found"
 msgstr "✅ Inga ändringar hittades"
 
-#: po_diff.py:247
+#: po_diff.py:246
 msgid "Added"
 msgstr "Lade till"
 
-#: po_diff.py:248
+#: po_diff.py:247
 msgid "Removed"
 msgstr "Tog bort"
 
-#: po_diff.py:249
+#: po_diff.py:248
 msgid "Modified"
 msgstr "Ändrade"
 
-#: po_diff.py:250
+#: po_diff.py:249
 msgid "Fuzzy resolved"
 msgstr "Luddig löst"
 
-#: po_diff.py:251
+#: po_diff.py:250
 msgid "Marked fuzzy"
 msgstr "Markerade luddig"
 
-#: po_diff.py:264
+#: po_diff.py:263
 #, python-brace-format
 msgid "      ... and {count} more"
 msgstr "      ... och {count} till"
 
-#: po_diff.py:415
+#: po_diff.py:414
 msgid "positional arguments"
 msgstr "positionsargument"
 
-#: po_diff.py:416 po_diff.py:417
+#: po_diff.py:415 po_diff.py:416
 msgid "options"
 msgstr "flaggor"
 
-#: po_diff.py:425
+#: po_diff.py:424
 msgid "po-diff - Compare PO/TS translation files"
 msgstr "po-diff - Jämrför PO/TS-översättningsfiler"
 
-#: po_diff.py:428
+#: po_diff.py:427
 msgid ""
 "\n"
 "Examples:\n"
@@ -112,36 +112,36 @@ msgstr ""
 "  po-diff -f json old.po new.po            # JSON-utdata\n"
 "        "
 
-#: po_diff.py:436
+#: po_diff.py:435
 msgid "Old/original file"
 msgstr "Gammal/ursprunglig fil"
 
-#: po_diff.py:437
+#: po_diff.py:436
 msgid "New/updated file"
 msgstr "Ny/uppdaterad fil"
 
-#: po_diff.py:439
+#: po_diff.py:438
 msgid "Output format (default: text)"
 msgstr "Utdataformat (standard: text)"
 
-#: po_diff.py:440
+#: po_diff.py:439
 msgid "Save report to file"
 msgstr "Spara rapport till fil"
 
-#: po_diff.py:441
+#: po_diff.py:440
 msgid "Show this help message and exit"
 msgstr "Visa detta hjälpmeddelande och avsluta"
 
-#: po_diff.py:443
+#: po_diff.py:442
 msgid "Show version number and exit"
 msgstr "Visa versionsnummer och avsluta"
 
-#: po_diff.py:449 po_diff.py:452
+#: po_diff.py:448 po_diff.py:451
 #, python-brace-format
 msgid "❌ Error: File not found: {file}"
 msgstr "❌ Fel: Filen hittades inte: {file}"
 
-#: po_diff.py:470
+#: po_diff.py:469
 #, python-brace-format
 msgid "📄 Report saved to: {file}"
 msgstr "📄 Rapport sparades till: {file}"
