@@ -1,0 +1,21 @@
+Source: po-diff
+Section: devel
+Priority: optional
+Maintainer: Daniel Nylander <daniel@danielnylander.se>
+Build-Depends: debhelper-compat (= 13), python3, dh-python
+Standards-Version: 4.6.2
+Homepage: https://github.com/yeager/po-diff
+Vcs-Git: https://github.com/yeager/po-diff.git
+Vcs-Browser: https://github.com/yeager/po-diff
+
+Package: po-diff
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3
+Description: Tool for comparing gettext PO translation files
+ po-diff is a command-line tool for comparing gettext PO translation
+ files. It shows added, removed, and changed translations with
+ context-aware diffing, making it useful for translation reviewers
+ and maintainers.
+ .
+ Features include tracking fuzzy flag changes and multiple output
+ formats (text, JSON, HTML).

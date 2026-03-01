@@ -1,0 +1,17 @@
+Package: po-diff
+Version: 1.0.1-1
+Architecture: all
+Maintainer: Daniel Nylander <daniel@danielnylander.se>
+Installed-Size: 31
+Depends: python3:any, python3
+Section: devel
+Priority: optional
+Homepage: https://github.com/yeager/po-diff
+Description: Tool for comparing gettext PO translation files
+ po-diff is a command-line tool for comparing gettext PO translation
+ files. It shows added, removed, and changed translations with
+ context-aware diffing, making it useful for translation reviewers
+ and maintainers.
+ .
+ Features include tracking fuzzy flag changes and multiple output
+ formats (text, JSON, HTML).
